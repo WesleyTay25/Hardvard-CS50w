@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CS50 Advance Search</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a href="index.html">CS50 Search</a>
+      <a href="image.html">CS50 Images</a>
+    </nav>
+  </header>
+  <div>
+    <h2>CS50 Advanced Search</h2>
+  </div>
+  <label><b>Find pages with...</b></label>
+  <form action="https://images.google.com/search" class="form">
+    <div class = "advanceinputs">
+        <label>all these words:</label>
+        <input type="text" name="as_q">
+    </div>
+    <div class = "advanceinputs">
+        <label>this exact word or phrase:</label>
+        <input type="text" name="as_epq">
+    </div>
+    <div class = "advanceinputs">
+        <label>any of these words:</label>
+        <input type="text" name="as_oq">
+    </div>
+    <div class = "advanceinputs">
+        <label>none of these words:</label>
+        <input type="text" name="as_eq">
+    </div>
+    <br>
+    <div class ="abutton" >
+        <input class = "button" id="advancedbutton" type="submit" value="Advanced Search">
+    </div>
+  </form>
+  <footer>Heavily Inspired from Google</footer>
+</body>
+</html>
