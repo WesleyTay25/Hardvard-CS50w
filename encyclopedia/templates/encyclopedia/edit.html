@@ -1,0 +1,34 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+<h2>Edit Page: {{title}}</h2>
+<form method="post" action="">
+    {% csrf_token %}
+    
+    <div class="form-group">
+        {{ form.title_name.label_tag }}
+        {{ form.title_name }}
+    </div>
+
+    <div class="form-group" style="margin-top: 15px;">
+        {{ form.title_content.label_tag }}
+        {{ form.title_content }}
+    </div>
+
+    <button type="submit" 
+        style="
+            background-color: #007BFF; 
+            color: white; 
+            border: none; 
+            border-radius: 5px; 
+            padding: 10px 30px; 
+            margin-top: 5px;
+            cursor: pointer;">
+        Edit Page
+    </button>
+</form>
+{% endblock %}
