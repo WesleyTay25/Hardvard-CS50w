@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect, HttpResponse
 from django import forms
-from django.urls import reverse
 import markdown2
 import random
 
