@@ -54,6 +54,10 @@ def index(request):
 
 def title(request, title):
     content = util.get_entry(title)
+    if not content:
+        return render(request, "encyclopedia/error.html", {
+            "message": "Page not found"
+        })
     html_content = markdown2.markdown(content)
     return render(request, "encyclopedia/title.html", {
         "title":title,
@@ -72,6 +76,10 @@ def search(request):
         for entry in all_entries:
             if searchquery.lower() in entry.lower():
                 results.append(entry)
+        if len(results) == 0:
+            return render(request, "encyclopedia/error.html", {
+                "message":"No possible pages not found"
+            })
         return render(request, "encyclopedia/search.html", {
             "results":results,
             "search":searchquery
@@ -87,7 +95,7 @@ def create(request):
         all_entries = util.list_entries()
         for entry in all_entries:
             if entry.lower() == title.lower():
-                return render(request, "encyclopedia/error.hmtl", {
+                return render(request, "encyclopedia/error.html", {
                     "message": "Page already Exists"
                 })
             else:
