@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Title
+{% endblock %}
+
+{% block body %}
+
+{% if content %}
+{{content | safe}}
+<a href="{% url 'encyclopedia:edit' title=title%}" class="btn btn-primary">Edit Page</a>
+{% else %}
+
+<main style= "display: flex; justify-content: center; align-items: center; height: 100%;">
+    <h1>Page not found</h1>
+</main>
+
+{% endif %}
+{% endblock %}
