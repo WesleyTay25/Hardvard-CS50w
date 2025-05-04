@@ -1,0 +1,53 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+{% for message in messages %}
+<div class="alert alert-info rounded-sm shadow-sm m-2 mt-4">
+{{message}}
+</div>
+{% endfor %}
+
+<main style="margin: 18px">
+    <h3>All Posts</h3>
+    {% if user.is_authenticated %}
+    <div class="border border-dark shadow-sm rounded">
+      <div class="card-body">
+        <h5 class="card-title">New Post</h5>
+        <form method="POST" action="{% url 'post' %}">
+            {% csrf_token %}
+          <div class="mb-3">
+            <textarea class="form-control" name="content" rows="4" placeholder="Enter Post Here"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Post</button>
+        </form>
+      </div>
+    </div>
+    {% else %}
+    <h2>Log in to create a post!</h2>
+    {% endif %}
+    {% for post in posts %}
+    <div style="display:flex; flex-direction: column; align-items: flex-start; border: rgb(181, 180, 180) 1px solid; margin-top: 10px; border-radius: 10px; padding: 10px;" data-postid="{{post.id}}">
+        <h4><a style ="color: black;" href="{% url 'profile' post.user.username %}">{{post.user}}</a></h4>
+        <p>{{post.content}}</p>
+        <button class="like" style="border:none; background: none; margin-left: -10px;">❤️ <span class="likecount">{{post.likes.count}}</span></button> <!--Make heart interactive-->
+        <i>{{post.time}}</i>
+        {% if post.edited == True %}
+        <i>Edited</i>
+        {% endif %}
+        <!--Check if user made this post -->
+        {% if request.user.id == post.user.id %}
+          <button class="edit btn btn-primary" style="margin: 5px 0px; width: 60px;">Edit</button>
+        {% endif %}
+    </div>
+    {% endfor %}
+    <div>
+      {% if posts.has_previous %}
+        <a href="?page={{posts.previous_page_number }}">Previous</a>
+      {% endif %}
+      <span>Page {{posts.number}} of {{posts.paginator.num_pages}}</span>
+      {% if posts.has_next %}
+        <a href="?page={{posts.next_page_number}}">Next</a>
+      {% endif %}
+    </div>
+</main>
+{% endblock %}

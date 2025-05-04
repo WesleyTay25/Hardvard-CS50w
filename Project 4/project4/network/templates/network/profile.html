@@ -1,0 +1,51 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+<main style="margin: 18px;">
+<div >
+    <h2>{{profile.username}}</h2>
+    <p><b>Followers:</b> {{profile.followers.count}} <span style="margin-left: 10px;"><b>Following:</b> {{profile.following.count}}</span></p>
+    {% if user.is_authenticated %}
+        {% if request.user.id != profile.id %}
+            {% if request.user in profile.followers.all %}
+                <form action="{% url 'edit_follow' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="user" value="{{profile.id}}">
+                    <button class = "btn btn-danger">Unfollow</button>
+                </form>
+            {% else %}
+                <form action="{% url 'edit_follow' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="user" value="{{profile.id}}">
+                    <button class = "btn btn-primary">Follow</button>
+                </form>
+            {% endif %}
+        {% endif %}
+    {% endif %}
+</div>
+<hr>
+{% for post in posts %}
+<div style="display:flex; flex-direction: column;  align-items: flex-start;   border: rgb(181, 180, 180) 1px solid; margin-top: 10px; border-radius: 10px; padding: 10px;" data-postid="{{post.id}}">
+    <h4>{{post.user}}</h4>
+    <p>{{post.content}}</p>
+    <button class="like" style="border:none; background: none; margin-left: -10px;">❤️ <span class="likecount">{{post.likes.count}}</span></button>
+    <i>{{post.time}}</i>
+    {% if post.edited == True %}
+    <i>Edited</i>
+    {% endif %}
+    {% if request.user.id == profile.id %}
+    <button class="edit btn btn-primary" style="margin: 5px 0px; width: 60px;">Edit</button>
+    {% endif %}
+</div>
+{% endfor %}
+    <div>
+        {% if posts.has_previous %}
+            <a href="?page={{posts.previous_page_number }}">Previous</a>
+        {% endif %}
+            <span>Page {{posts.number}} of {{posts.paginator.num_pages}}</span>
+        {% if posts.has_next %}
+            <a href="?page={{posts.next_page_number}}">Next</a>
+        {% endif %}
+    </div>
+</main>
+{% endblock %}
