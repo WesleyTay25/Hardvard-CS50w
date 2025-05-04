@@ -1,5 +1,5 @@
 # Harvard-CS50w
-Hello! This repository showcases my learning journey in Harvard's CS50w Course by David Malan.
+Hello! This repository showcases my learning journey in Harvard's CS50w Course by David Malan and Brian Yiu.
 As a follow-up on CS0x, I started CS50w on 22nd April 2025 and am currently completing the course.
 
 Throughout my journey with CS50w, I have been exposed to many topics and have completed projects respectively:
