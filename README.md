@@ -19,7 +19,7 @@ Through this course, I have made 6 websites:
 - Commerce/Auction
 - Mail
 - Network
------------------------------------To be Completed----------------------------------------------------
+- -----------------------------------To be Completed----------------------------------------------------
 - Final Project
 
 This course gives me a better understanding of web development and hones my skills for full-stack development.
