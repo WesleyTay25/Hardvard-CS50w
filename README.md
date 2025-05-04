@@ -17,9 +17,9 @@ Through this course, I have made 6 websites:
 - Google Replica
 - Wikipedia Replica
 - Commerce/Auction
-- -----------------------------------To be Completed----------------------------------------------------
 - Mail
 - Network
+-----------------------------------To be Completed----------------------------------------------------
 - Final Project
 
 This course gives me a better understanding of web development and hones my skills for full-stack development.
