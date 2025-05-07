@@ -13,7 +13,7 @@ Throughout my journey with CS50w, I have been exposed to many topics and have co
 - Lecture 7: Testing, CI/CD
 - Lecture 8: Scalability and Security
 
-Through this course, I have made 6 websites:
+Through this course, I have made 6 web applications:
 - Google Replica
 - Wikipedia Replica
 - Commerce/Auction
