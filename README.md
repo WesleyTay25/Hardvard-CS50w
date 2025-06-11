@@ -19,7 +19,6 @@ Through this course, I have made 6 web applications:
 - Commerce/Auction
 - Mail
 - Network
-- -----------------------------------To be Completed----------------------------------------------------
 - Final Project (Music Streaming Platform)
 
-This course gives me a better understanding of web development and hones my skills for full-stack development. It also teaches me the skills and knowledge required to collaborate with other programmers on a larger project and how to deploy a full-scale web application, allowing for easier transition into wthe workforce
+This course provides me with a deeper understanding of web development and refines my skills for full-stack development. It also teaches me the skills and knowledge required to collaborate with other programmers on a larger project and how to deploy a full-scale web application, allowing for easier transition into the workforce
